@@ -3,14 +3,26 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/error.css}" />
+<link rel="stylesheet" th:href="@{/css/lokaalForm.css}" />
 </head>
 <body>
-	<form th:action="@{/conferentieOverzicht}" th:object="${lokaal}" method="post">
-		<label>lokaal naam</label>
-		<input type="text" th:field="*{lokaalNaam}" placeholder="lokaal naam"/>
-		<label>capaciteit</label>
-		<input type="text" th:field="*{capaciteit}"/>
-		<button>voeg toe</button>
-	</form>
+	<div class = "flex-container">
+		<h1 th:text="#{lokaalForm.title}" class = "item-1"></h1>
+		<form th:action="@{/lokaal}" th:object="${lokaal}" method="post" class = "flex-container">
+
+				<label th:text="#{lokaalForm.lokaalNaamLabel}"></label> 
+				<input type="text" th:field="*{lokaalNaam}" th:placeholder="#{lokaalForm.lokaalNaamPlaceHolder}" /> 
+				<span th:if="${#fields.hasErrors('lokaalNaam')}" th:errorclass="error" th:errors="*{lokaalNaam}"></span> 
+				
+				<label th:text="#{lokaalForm.capaciteitLabel}"></label> 
+				<input type="text" th:field="*{capaciteit}" /> 
+				<span th:if="${#fields.hasErrors('capaciteit')}" th:errorclass="error" th:errors="*{capaciteit}"></span>
+				
+				<button th:text="#{lokaalForm.submitButton}"></button>
+
+		</form>
+	</div>
+
 </body>
 </html>
