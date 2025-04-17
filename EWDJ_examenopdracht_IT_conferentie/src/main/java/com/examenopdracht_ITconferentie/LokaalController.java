@@ -38,6 +38,7 @@ public class LokaalController {
 		}
 		
 		lokaalRepository.save(lokaal);
-		return "conferentieOverzicht";
+		model.addAttribute("saved", true);
+		return "lokaalForm";
 	}
 }

@@ -13,5 +13,8 @@ public class Beamer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int id;
+	private int id;
+	
+	private int beamerCode;
+	private int beamerCheck; // = beamerCode % 97;
 }

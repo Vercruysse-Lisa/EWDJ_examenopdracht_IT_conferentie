@@ -27,14 +27,14 @@ public class Lokaal implements Serializable{
 	@Id
 	@NotBlank
 	@Pattern(regexp = "^[A-Za-z]\\d{3}$", message = "{lokaal.lokaalNaam.pattern}")
-	String lokaalNaam;
+	private String lokaalNaam;
 	
 	@Min(1)
 	@Max(50)
 	@NotNull
-	int capaciteit;
+	private int capaciteit;
 	
 	@OneToMany(mappedBy = "lokaal")
-	List<Event> events;
+	private List<Event> events;
 	
 }

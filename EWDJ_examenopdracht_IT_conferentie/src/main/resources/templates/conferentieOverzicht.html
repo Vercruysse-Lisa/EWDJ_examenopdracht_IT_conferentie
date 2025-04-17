@@ -2,11 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title th:text="#{conferentieOverzicht.title}"></title>
 </head>
 <body>
 	<a th:href="@{/lokaal}">
-		<button type = "button">
+		<button type = "button" th:text = "#{conferentieOverzicht.nieuwLokaalButton}">
 			Nieuw lokaal
 		</button>
 	</a>

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title th:text="#{lokaalForm.title}"></title>
 <link rel="stylesheet" th:href="@{/css/error.css}" />
 <link rel="stylesheet" th:href="@{/css/lokaalForm.css}" />
 </head>
@@ -22,6 +22,7 @@
 				<button th:text="#{lokaalForm.submitButton}"></button>
 
 		</form>
+		<div th:if="${saved}" th:text="#{lokaalForm.successMessage}"></div>
 	</div>
 
 </body>

@@ -21,17 +21,17 @@ public class Event implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int id;
-	String beschrijving; //optional
-	LocalDateTime datumTijd;
-	double prijs;
+	private int id;
+	private String beschrijving; //optional
+	private LocalDateTime datumTijd;
+	private double prijs;
 	
 	@ManyToMany
-	List<Spreker> sprekers;
+	private List<Spreker> sprekers;
 	
 	@ManyToOne
-	Lokaal lokaal;
+	private Lokaal lokaal;
 	
 	@ManyToOne
-	Beamer beamer;
+	private Beamer beamer;
 }

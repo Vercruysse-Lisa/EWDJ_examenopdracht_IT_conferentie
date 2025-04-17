@@ -8,10 +8,14 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 public class Spreker {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int id;
+	private int id;
+	
+	private String voornaam;
+	private String achternaam;
+	
 }
