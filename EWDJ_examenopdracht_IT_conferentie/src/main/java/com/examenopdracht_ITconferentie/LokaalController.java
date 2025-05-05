@@ -12,15 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import domain.Lokaal;
 import jakarta.validation.Valid;
 import repository.LokaalRepository;
+import service.LokaalService;
 
 @Controller
 @RequestMapping("/lokaal")
 public class LokaalController {
 	
 	@Autowired
-	LokaalRepository lokaalRepository;
+	LokaalService lokaalService;
 	
-	@Autowired Validator lokaalValidator;
+	@Autowired 
+	Validator lokaalValidator;
 	
 	@GetMapping
 	public String lokaalForm(Model model) {
@@ -37,7 +39,7 @@ public class LokaalController {
 			return "lokaalForm";
 		}
 		
-		lokaalRepository.save(lokaal);
+		lokaalService.saveLokaal(lokaal);
 		model.addAttribute("saved", true);
 		return "lokaalForm";
 	}
