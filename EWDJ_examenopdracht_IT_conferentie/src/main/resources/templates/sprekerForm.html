@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="#{sprekerForm.title}"></title>
+<link rel="stylesheet" th:href="@{/css/error.css}" />
+<link rel="stylesheet" th:href="@{/css/form.css}"/>
+</head>
+<body>
+	<div class = "flex-container">
+		<h1 th:text="#{sprekerForm.title}" class = "item-1"></h1>
+		<form th:action="@{/spreker}" th:object="${spreker}" method="post" class="flex-container">
+		
+			<label th:text="#{sprekerForm.voornaamLabel}"></label>
+			<input type="text" th:field="*{voornaam}" th:placeholder="#{sprekerForm.voornaamLabel}"/>
+			<span th:if="${#fields.hasErrors('voornaam')}" th:errorclass="error" th:errors="*{voornaam}"></span>
+			
+			<label th:text="#{sprekerForm.achternaamLabel}"></label>
+			<input type="text" th:field="*{achternaam}" th:placeholder="#{sprekerForm.achternaamLabel}"/>
+			<span th:if="${#fields.hasErrors('achternaam')}" th:errorclass="error" th:errors="*{achternaam}"></span>
+			
+			<button th:text="#{submitButton}"></button>
+		</form>
+		
+		<a th:href="@{conferentieOverzicht}">
+			<button th:text="#{backButton}"></button>
+		</a>
+	</div>
+</body>
+</html>

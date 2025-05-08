@@ -4,7 +4,7 @@
 <meta charset="ISO-8859-1">
 <title th:text="#{lokaalForm.title}"></title>
 <link rel="stylesheet" th:href="@{/css/error.css}" />
-<link rel="stylesheet" th:href="@{/css/lokaalForm.css}" />
+<link rel="stylesheet" th:href="@{/css/form.css}" />
 </head>
 <body>
 	<div class = "flex-container">
@@ -20,8 +20,10 @@
 				<span th:if="${#fields.hasErrors('capaciteit')}" th:errorclass="error" th:errors="*{capaciteit}"></span>
 				
 				<button th:text="#{lokaalForm.submitButton}"></button>
-
 		</form>
+		<a th:href="@{/conferentieOverzicht}">
+					<button type="button" th:text="#{backButton}"></button>
+				</a>
 		<div th:if="${saved}" th:text="#{lokaalForm.successMessage}"></div>
 	</div>
 

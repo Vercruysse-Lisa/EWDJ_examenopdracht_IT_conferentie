@@ -2,7 +2,7 @@ package domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,12 +22,15 @@ public class Event implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String beschrijving; //optional
+	
 	private LocalDateTime datumTijd;
+	
 	private double prijs;
 	
 	@ManyToMany
-	private List<Spreker> sprekers;
+	private Set<Spreker> sprekers;
 	
 	@ManyToOne
 	private Lokaal lokaal;

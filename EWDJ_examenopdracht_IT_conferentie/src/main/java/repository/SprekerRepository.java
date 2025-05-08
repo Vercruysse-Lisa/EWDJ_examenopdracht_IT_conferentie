@@ -3,9 +3,9 @@ package repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import domain.Lokaal;
+import domain.Spreker;
 
 @Repository
-public interface LokaalRepository extends JpaRepository<Lokaal, String>{
-	
+public interface SprekerRepository extends JpaRepository<Spreker, Integer>{
+
 }

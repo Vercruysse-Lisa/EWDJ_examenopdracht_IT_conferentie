@@ -9,37 +9,37 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import domain.Lokaal;
+import domain.Spreker;
 import jakarta.validation.Valid;
-import service.LokaalService;
+import service.SprekerService;
 
 @Controller
-@RequestMapping("/lokaal")
-public class LokaalController {
+@RequestMapping("/spreker")
+public class SprekerController {
 	
 	@Autowired
-	LokaalService lokaalService;
+	Validator sprekerValidator;
 	
-	@Autowired 
-	Validator lokaalValidator;
+	@Autowired
+	SprekerService sprekerService;
 	
 	@GetMapping
-	public String lokaalForm(Model model) {
-		model.addAttribute("lokaal", new Lokaal());
-		return "lokaalForm";
+	public String sprekerForm(Model model) {
+		model.addAttribute("spreker", new Spreker());
+		return "sprekerForm";
 	}
 	
 	@PostMapping
-	public String AddLokaalForm(@Valid Lokaal lokaal, BindingResult result, Model model) {
+	public String addSprekerForm(@Valid Spreker spreker, BindingResult result, Model model) {
 		
-		lokaalValidator.validate(lokaal, result);
+		sprekerValidator.validate(spreker, result);
 		
-		if (result.hasErrors()) {
-			return "lokaalForm";
+		if(result.hasErrors()) {
+			return "sprekerForm";
 		}
 		
-		lokaalService.saveLokaal(lokaal);
-		model.addAttribute("saved", true);
-		return "lokaalForm";
+		sprekerService.saveSpreker(spreker);
+		return "sprekerForm";
 	}
+	
 }
